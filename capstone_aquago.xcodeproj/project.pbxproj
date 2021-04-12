@@ -12,6 +12,7 @@
 		060E9364262478D1003426E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060E9363262478D1003426E6 /* ViewController.swift */; };
 		060E9369262478D1003426E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 060E9368262478D1003426E6 /* Assets.xcassets */; };
 		060E936C262478D1003426E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060E936A262478D1003426E6 /* LaunchScreen.storyboard */; };
+		9060941ADBBAA295A31F5A80 /* Pods_capstone_aquago.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B4B82E1663AC5A585C64E9 /* Pods_capstone_aquago.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		060E9368262478D1003426E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		060E936B262478D1003426E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		060E936D262478D1003426E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3B4B82E1663AC5A585C64E9 /* Pods_capstone_aquago.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_capstone_aquago.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA1F77CEDCEB8C97657363AD /* Pods-capstone_aquago.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-capstone_aquago.debug.xcconfig"; path = "Target Support Files/Pods-capstone_aquago/Pods-capstone_aquago.debug.xcconfig"; sourceTree = "<group>"; };
+		D52608983C4F7E280B8C5CDE /* Pods-capstone_aquago.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-capstone_aquago.release.xcconfig"; path = "Target Support Files/Pods-capstone_aquago/Pods-capstone_aquago.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9060941ADBBAA295A31F5A80 /* Pods_capstone_aquago.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				060E935E262478D1003426E6 /* capstone_aquago */,
 				060E935D262478D1003426E6 /* Products */,
+				890345CE47684FCD8CAE06D3 /* Pods */,
+				C5DCA7A46C9C66D2BDD4966D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +95,24 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		890345CE47684FCD8CAE06D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA1F77CEDCEB8C97657363AD /* Pods-capstone_aquago.debug.xcconfig */,
+				D52608983C4F7E280B8C5CDE /* Pods-capstone_aquago.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C5DCA7A46C9C66D2BDD4966D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3B4B82E1663AC5A585C64E9 /* Pods_capstone_aquago.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,9 +120,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 060E9370262478D1003426E6 /* Build configuration list for PBXNativeTarget "capstone_aquago" */;
 			buildPhases = (
+				75BEBB489C2CDE2821D4B841 /* [CP] Check Pods Manifest.lock */,
 				060E9358262478D1003426E6 /* Sources */,
 				060E9359262478D1003426E6 /* Frameworks */,
 				060E935A262478D1003426E6 /* Resources */,
+				28A435A86EDB616DB73B1090 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +178,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28A435A86EDB616DB73B1090 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-capstone_aquago/Pods-capstone_aquago-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-capstone_aquago/Pods-capstone_aquago-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-capstone_aquago/Pods-capstone_aquago-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75BEBB489C2CDE2821D4B841 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-capstone_aquago-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		060E9358262478D1003426E6 /* Sources */ = {
@@ -295,6 +364,7 @@
 		};
 		060E9371262478D1003426E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA1F77CEDCEB8C97657363AD /* Pods-capstone_aquago.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +384,7 @@
 		};
 		060E9372262478D1003426E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D52608983C4F7E280B8C5CDE /* Pods-capstone_aquago.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
