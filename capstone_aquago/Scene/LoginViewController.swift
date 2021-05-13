@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     let logo: UIImageView = {
         let lg = UIImageView()
-        lg.image = UIImage(named: "logo")
+        lg.image = UIImage(named: "Logo")
         
         return lg
     }()

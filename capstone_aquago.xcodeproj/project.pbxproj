@@ -3,15 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		060E9360262478D1003426E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060E935F262478D1003426E6 /* AppDelegate.swift */; };
 		060E9362262478D1003426E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060E9361262478D1003426E6 /* SceneDelegate.swift */; };
-		060E9364262478D1003426E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060E9363262478D1003426E6 /* ViewController.swift */; };
+		060E9364262478D1003426E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060E9363262478D1003426E6 /* LoginViewController.swift */; };
 		060E9369262478D1003426E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 060E9368262478D1003426E6 /* Assets.xcassets */; };
 		060E936C262478D1003426E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060E936A262478D1003426E6 /* LaunchScreen.storyboard */; };
+		0687FC2D264D19AF00CE608E /* SignUpViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687FC2C264D19AF00CE608E /* SignUpViewcontroller.swift */; };
 		9060941ADBBAA295A31F5A80 /* Pods_capstone_aquago.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B4B82E1663AC5A585C64E9 /* Pods_capstone_aquago.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,10 +20,11 @@
 		060E935C262478D1003426E6 /* capstone_aquago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = capstone_aquago.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		060E935F262478D1003426E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		060E9361262478D1003426E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		060E9363262478D1003426E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		060E9363262478D1003426E6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		060E9368262478D1003426E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		060E936B262478D1003426E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		060E936D262478D1003426E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0687FC2C264D19AF00CE608E /* SignUpViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewcontroller.swift; sourceTree = "<group>"; };
 		A3B4B82E1663AC5A585C64E9 /* Pods_capstone_aquago.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_capstone_aquago.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1F77CEDCEB8C97657363AD /* Pods-capstone_aquago.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-capstone_aquago.debug.xcconfig"; path = "Target Support Files/Pods-capstone_aquago/Pods-capstone_aquago.debug.xcconfig"; sourceTree = "<group>"; };
 		D52608983C4F7E280B8C5CDE /* Pods-capstone_aquago.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-capstone_aquago.release.xcconfig"; path = "Target Support Files/Pods-capstone_aquago/Pods-capstone_aquago.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,7 +85,8 @@
 		060E9378262479B7003426E6 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				060E9363262478D1003426E6 /* ViewController.swift */,
+				060E9363262478D1003426E6 /* LoginViewController.swift */,
+				0687FC2C264D19AF00CE608E /* SignUpViewcontroller.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -101,7 +104,6 @@
 				CA1F77CEDCEB8C97657363AD /* Pods-capstone_aquago.debug.xcconfig */,
 				D52608983C4F7E280B8C5CDE /* Pods-capstone_aquago.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -226,8 +228,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				060E9364262478D1003426E6 /* ViewController.swift in Sources */,
+				060E9364262478D1003426E6 /* LoginViewController.swift in Sources */,
 				060E9360262478D1003426E6 /* AppDelegate.swift in Sources */,
+				0687FC2D264D19AF00CE608E /* SignUpViewcontroller.swift in Sources */,
 				060E9362262478D1003426E6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
