@@ -7,5 +7,6 @@ target 'capstone_aquago' do
 
   # Pods for capstone_aquago
   pod 'SnapKit', '~>5.0.0'
-
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end
