@@ -21,6 +21,15 @@ class HomeViewController: UIViewController {
         return b
     }()
     
+    let btnAddFolder: UIButton = {
+        let b = UIButton()
+        if let img: UIImage = UIImage(named: "ico-folder-add") {
+            b.setImage(img, for: .normal)
+        }
+        
+        return b
+    }()
+    
     override func viewDidLoad() {
         configureView()
         configureSubView()
@@ -36,6 +45,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .white
         
         view.addSubview(btnLogout)
+        view.addSubview(btnAddFolder)
     }
     
     private func configureSubView() {
@@ -43,6 +53,11 @@ class HomeViewController: UIViewController {
         btnLogout.snp.makeConstraints {
             $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(8)
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(8)
+        }
+        
+        btnAddFolder.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(8)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-8)
         }
     }
     
@@ -52,6 +67,12 @@ class HomeViewController: UIViewController {
             .tap
             .bind {
                 self.dismiss(animated: true, completion: nil)
+            }.disposed(by: bag)
+        
+        btnAddFolder.rx
+            .tap
+            .bind {
+                print("add folder")
             }.disposed(by: bag)
     }
 }
