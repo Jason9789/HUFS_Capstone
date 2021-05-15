@@ -7,9 +7,13 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class SignUpViewController: UIViewController {
 
+    private let bag = DisposeBag()
+    
     let logo: UIImageView = {
         let lg = UIImageView()
         lg.image = UIImage(named: "Logo")
@@ -113,6 +117,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
+        bindRx()
     }
     
     private func initView() {
@@ -184,6 +189,14 @@ class SignUpViewController: UIViewController {
             $0.top.equalTo(signUp.snp.bottom).offset(30)
             $0.centerX.equalTo(view.snp.centerX)
         }
+    }
+    
+    private func bindRx() {
+        btnBack.rx
+            .tap
+            .bind {
+                self.dismiss(animated: true, completion: nil)
+            }.disposed(by: bag)
     }
 }
 

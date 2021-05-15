@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let rootVC = LoginViewController()
         let navi = UINavigationController(rootViewController: rootVC)
         navi.navigationBar.isHidden = true
+        navi.modalPresentationStyle = .fullScreen
         window?.rootViewController = navi
         window?.makeKeyAndVisible()
     }
