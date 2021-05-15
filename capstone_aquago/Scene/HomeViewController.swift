@@ -175,8 +175,9 @@ class HomeViewController: UIViewController {
         
         btnAddFolder.rx
             .tap
-            .bind {
-                print("add folder")
+            .bind { [weak self] in
+                let addTank = AddTankViewcontroller()
+                self?.present(addTank, animated: true, completion: nil)
             }.disposed(by: bag)
     }
 }
