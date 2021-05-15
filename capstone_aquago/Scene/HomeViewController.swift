@@ -58,7 +58,7 @@ class HomeViewController: UIViewController {
         return lb
     }()
     
-    private let labelShash: UILabel = {
+    private let labelSlash: UILabel = {
         let lb = UILabel()
         lb.text = "/"
         lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
@@ -128,7 +128,7 @@ class HomeViewController: UIViewController {
         stack.addArrangedSubview(imgSirenGreen)
         
         stackLabels.addArrangedSubview(titleWaterTank)
-        stackLabels.addArrangedSubview(labelShash)
+        stackLabels.addArrangedSubview(labelSlash)
         stackLabels.addArrangedSubview(titleFishSpecies)
 
     }
