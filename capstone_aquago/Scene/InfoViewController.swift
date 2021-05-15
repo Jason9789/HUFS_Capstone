@@ -7,10 +7,14 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class InfoViewcontroller: UIViewController {
     
     //MARK:- Private
+    
+    private let bag = DisposeBag()
     
     private let btnHome: UIButton = {
         let b = UIButton()
@@ -214,6 +218,7 @@ class InfoViewcontroller: UIViewController {
         print("Info")
         configureView()
         configureSubView()
+        bindRx()
     }
     
     //MARK:- Configure View
@@ -360,5 +365,16 @@ class InfoViewcontroller: UIViewController {
             $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-20)
         }
+    }
+    
+    
+    //MARK:- BindRx
+    private func bindRx() {
+        btnEdit.rx
+            .tap
+            .bind {
+                let editVC = EditViewController()
+                self.present(editVC, animated: true, completion: nil)
+            }.disposed(by: bag)
     }
 }
