@@ -63,7 +63,7 @@ class HomeViewController: UIViewController {
     
     //MARK:- Lifecycle
     override func viewDidLoad() {
-        makeData()
+//        makeData()
         configureView()
         configureSubView()
         bindRx()
@@ -74,16 +74,16 @@ class HomeViewController: UIViewController {
         
     }
     
-    private func makeData() {
-        for i in 0...1 {
-            tankData.append(ModelWaterTank.init(
-                                titleWaterTank: textTank[i],
-                                titleFish: textFish[i])
-            )
-            
-            print(tankData)
-        }
-    }
+//    private func makeData() {
+//        for i in 0...1 {
+//            tankData.append(ModelWaterTank.init(
+//                                titleWaterTank: textTank[i],
+//                                titleFish: textFish[i])
+//            )
+//
+//            print(tankData)
+//        }
+//    }
     
     //MARK:- ConfigureView
     private func configureView() {
@@ -167,8 +167,8 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableViewTankList.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
         cell.selectionStyle = .none
         
-        cell.titleWaterTank.text = tankData[indexPath.row].titleWaterTank ?? ""
-        cell.titleFishSpecies.text = tankData[indexPath.row].titleFish ?? ""
+//        cell.titleWaterTank.text = tankData[indexPath.row].titleWaterTank ?? ""
+//        cell.titleFishSpecies.text = tankData[indexPath.row].titleFish ?? ""
         
         return cell
     }

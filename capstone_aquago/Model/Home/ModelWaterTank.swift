@@ -6,15 +6,20 @@
 //
 
 import Foundation
-import UIKit
 
-class ModelWaterTank {
-    var titleWaterTank: String!
-    var titleFish: String!
-//    var imgSiren: UIImage!
+struct ModelWaterTank: Codable {
+    var tank: String!
+    var fish: String!
     
-    init(titleWaterTank: String, titleFish: String) {
-        self.titleWaterTank = titleWaterTank
-        self.titleFish = titleFish
+//    init(titleWaterTank: String, titleFish: String) {
+//        self.titleWaterTank = titleWaterTank
+//        self.titleFish = titleFish
+//    }
+}
+
+extension ModelWaterTank: Hashable {
+    
+    static func == (lhs: ModelWaterTank, rhh: ModelWaterTank) -> Bool {
+        return lhs.tank == rhh.tank && lhs.fish == rhh.fish
     }
 }
