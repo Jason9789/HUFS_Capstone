@@ -165,6 +165,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableViewTankList.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
+        cell.selectionStyle = .none
         
         cell.titleWaterTank.text = tankData[indexPath.row].titleWaterTank ?? ""
         cell.titleFishSpecies.text = tankData[indexPath.row].titleFish ?? ""

@@ -75,9 +75,11 @@
 		060E935E262478D1003426E6 /* capstone_aquago */ = {
 			isa = PBXGroup;
 			children = (
-				060E9379262479C7003426E6 /* Shared */,
-				060E9378262479B7003426E6 /* Scene */,
 				060E937526247981003426E6 /* Application */,
+				06510B0A2650FCB800689E59 /* ViewModel */,
+				06510B072650FC8300689E59 /* Model */,
+				060E9378262479B7003426E6 /* ViewController */,
+				060E9379262479C7003426E6 /* Shared */,
 			);
 			path = capstone_aquago;
 			sourceTree = "<group>";
@@ -94,19 +96,14 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		060E9378262479B7003426E6 /* Scene */ = {
+		060E9378262479B7003426E6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				060E9363262478D1003426E6 /* LoginViewController.swift */,
-				0687FC2C264D19AF00CE608E /* SignUpViewcontroller.swift */,
-				060B8A53264EF6DE00FAFD20 /* HomeViewController.swift */,
-				06510AF5264FA21400689E59 /* AddTankViewController.swift */,
-				06510AF8264FB70000689E59 /* InfoViewController.swift */,
-				06510AFB264FC4B500689E59 /* EditViewController.swift */,
-				06510AFE2650ECA800689E59 /* MainTableViewCell.swift */,
-				06510B012650EE8500689E59 /* ModelWaterTank.swift */,
+				06510B062650FC6200689E59 /* Info */,
+				06510B052650FC5800689E59 /* Home */,
+				06510B042650FC4B00689E59 /* Authentication */,
 			);
-			path = Scene;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		060E9379262479C7003426E6 /* Shared */ = {
@@ -114,6 +111,57 @@
 			children = (
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		06510B042650FC4B00689E59 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				060E9363262478D1003426E6 /* LoginViewController.swift */,
+				0687FC2C264D19AF00CE608E /* SignUpViewcontroller.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		06510B052650FC5800689E59 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				06510AFE2650ECA800689E59 /* MainTableViewCell.swift */,
+				060B8A53264EF6DE00FAFD20 /* HomeViewController.swift */,
+				06510AF5264FA21400689E59 /* AddTankViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		06510B062650FC6200689E59 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				06510AF8264FB70000689E59 /* InfoViewController.swift */,
+				06510AFB264FC4B500689E59 /* EditViewController.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		06510B072650FC8300689E59 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				06510B082650FC8900689E59 /* Home */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		06510B082650FC8900689E59 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				06510B012650EE8500689E59 /* ModelWaterTank.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		06510B0A2650FCB800689E59 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		890345CE47684FCD8CAE06D3 /* Pods */ = {
