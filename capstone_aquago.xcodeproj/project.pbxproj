@@ -21,6 +21,7 @@
 		06510B0E2650FD5200689E59 /* AddTankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06510B0D2650FD5200689E59 /* AddTankViewModel.swift */; };
 		06510B122650FD7B00689E59 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06510B112650FD7B00689E59 /* ViewModelType.swift */; };
 		0687FC2D264D19AF00CE608E /* SignUpViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0687FC2C264D19AF00CE608E /* SignUpViewcontroller.swift */; };
+		06FE2758265108F000844D4C /* TankListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE2757265108F000844D4C /* TankListViewModel.swift */; };
 		9060941ADBBAA295A31F5A80 /* Pods_capstone_aquago.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B4B82E1663AC5A585C64E9 /* Pods_capstone_aquago.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		06510B0D2650FD5200689E59 /* AddTankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTankViewModel.swift; sourceTree = "<group>"; };
 		06510B112650FD7B00689E59 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		0687FC2C264D19AF00CE608E /* SignUpViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewcontroller.swift; sourceTree = "<group>"; };
+		06FE2757265108F000844D4C /* TankListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankListViewModel.swift; sourceTree = "<group>"; };
 		A3B4B82E1663AC5A585C64E9 /* Pods_capstone_aquago.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_capstone_aquago.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1F77CEDCEB8C97657363AD /* Pods-capstone_aquago.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-capstone_aquago.debug.xcconfig"; path = "Target Support Files/Pods-capstone_aquago/Pods-capstone_aquago.debug.xcconfig"; sourceTree = "<group>"; };
 		D52608983C4F7E280B8C5CDE /* Pods-capstone_aquago.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-capstone_aquago.release.xcconfig"; path = "Target Support Files/Pods-capstone_aquago/Pods-capstone_aquago.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				06510B0D2650FD5200689E59 /* AddTankViewModel.swift */,
+				06FE2757265108F000844D4C /* TankListViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				060E9364262478D1003426E6 /* LoginViewController.swift in Sources */,
 				060E9360262478D1003426E6 /* AppDelegate.swift in Sources */,
 				06510B022650EE8500689E59 /* ModelWaterTank.swift in Sources */,
+				06FE2758265108F000844D4C /* TankListViewModel.swift in Sources */,
 				06510AF9264FB70000689E59 /* InfoViewController.swift in Sources */,
 				0687FC2D264D19AF00CE608E /* SignUpViewcontroller.swift in Sources */,
 				06510B122650FD7B00689E59 /* ViewModelType.swift in Sources */,

@@ -17,8 +17,13 @@ class HomeViewController: UIViewController {
     private let textTank = ["우럭울어", "광어미쳐"]
     private let textFish = ["우럭", "광어"]
     
+    private let texts = [[String]]()
+    
     //MARK:- Private
     private let bag = DisposeBag()
+    
+//    let viewModel = TankListViewModel()
+    let viewModel = AddTankViewModel()
     
     private let btnLogout: UIButton = {
         let b = UIButton()
@@ -63,7 +68,7 @@ class HomeViewController: UIViewController {
     
     //MARK:- Lifecycle
     override func viewDidLoad() {
-//        makeData()
+        makeData()
         configureView()
         configureSubView()
         bindRx()
@@ -72,9 +77,15 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        print("===== 정보 저장 =====")
+        
+        self.viewModel.input.tank
+            .subscribe(onNext: {
+                print($0)
+            }).disposed(by: bag)
     }
     
-//    private func makeData() {
+    private func makeData() {
 //        for i in 0...1 {
 //            tankData.append(ModelWaterTank.init(
 //                                titleWaterTank: textTank[i],
@@ -83,7 +94,8 @@ class HomeViewController: UIViewController {
 //
 //            print(tankData)
 //        }
-//    }
+        
+    }
     
     //MARK:- ConfigureView
     private func configureView() {
@@ -142,6 +154,7 @@ class HomeViewController: UIViewController {
             .tap
             .bind { [weak self] in
                 let addTank = AddTankViewcontroller()
+                addTank.modalPresentationStyle = .fullScreen
                 self?.present(addTank, animated: true, completion: nil)
             }.disposed(by: bag)
     }

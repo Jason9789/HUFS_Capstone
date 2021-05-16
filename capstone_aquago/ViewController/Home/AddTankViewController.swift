@@ -16,6 +16,8 @@ class AddTankViewcontroller: UIViewController {
     
     private let bag = DisposeBag()
     
+    private let viewModel = AddTankViewModel()
+    
     private let labelTitle: UILabel = {
         let lb = UILabel()
         lb.text = "수조 추가"
@@ -158,11 +160,71 @@ class AddTankViewcontroller: UIViewController {
     
     //MARK:- BindRx
     private func bindRx() {
+        
+        tfWaterTank.rx
+            .text
+            .orEmpty
+            .changed
+            .bind(to: viewModel.input.tank)
+            .disposed(by: bag)
+        
+        tfWaterTank.rx
+            .controlEvent(.editingDidEndOnExit)
+            .bind { [weak self] in
+                self?.tfFish.becomeFirstResponder()
+            }
+            .disposed(by: bag)
+        
+        tfFish.rx
+            .text
+            .orEmpty
+            .changed
+            .bind(to: viewModel.input.fish)
+            .disposed(by: bag)
+        
         btnAdd.rx
             .tap
-            .bind {
-                print("추가하기")
+            .bind(to: viewModel.input.nextButtonPressed)
+            .disposed(by: bag)
+        
+        viewModel.output.isValid
+            .subscribe(onNext: { [weak self] isValid in
+                DispatchQueue.main.async {
+                    
+                    self?.btnAdd.isUserInteractionEnabled = isValid
+                    
+                    UIView.animate(withDuration: 0.2) {
+                        
+                        if isValid {
+                            self?.btnAdd.backgroundColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1.0)
+                        } else {
+                            self?.btnAdd.backgroundColor = UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1.0)
+                        }
+                    }
+                }
+            })
+            .disposed(by: bag)
+        
+        viewModel.output.isSaved
+            .subscribe(onNext: { isSaved in
+                print("saved")
+                
+                print("===== 정보 저장 =====")
+                print("tank: \(self.viewModel.dependency.tank ?? "")")
+                print("fish: \(self.viewModel.dependency.fish ?? "")")
+                
+                print(self.viewModel.input.tank)
+                print(self.viewModel.input.fish)
+                
+                self.viewModel.input.tank.subscribe{ event in
+                    print(event)
+                    
+                }.disposed(by: self.bag)
+                
+                print("SAVE")
+                
                 self.dismiss(animated: true, completion: nil)
-            }.disposed(by: bag)
+            })
+            .disposed(by: bag)
     }
 }
