@@ -12,6 +12,10 @@ import RxCocoa
 
 class HomeViewController: UIViewController {
     
+    var tankData = [ModelWaterTank]()
+    
+    private let textTank = ["우럭울어", "광어미쳐"]
+    private let textFish = ["우럭", "광어"]
     
     //MARK:- Private
     private let bag = DisposeBag()
@@ -41,6 +45,13 @@ class HomeViewController: UIViewController {
         return b
     }()
     
+    private let tableViewTankList: UITableView = {
+        let tv = UITableView()
+        tv.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.identifier)
+        tv.separatorStyle = .none
+        return tv
+    }()
+    
     private let stackLabels: UIStackView = {
         let s = UIStackView()
         s.axis = .horizontal
@@ -50,61 +61,9 @@ class HomeViewController: UIViewController {
         return s
     }()
     
-    private let titleWaterTank: UILabel = {
-        let lb = UILabel()
-        lb.text = "수조이름"
-        lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
-        lb.font = UIFont.boldSystemFont(ofSize: 40)
-        return lb
-    }()
-    
-    private let labelSlash: UILabel = {
-        let lb = UILabel()
-        lb.text = "/"
-        lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
-        lb.font = UIFont.boldSystemFont(ofSize: 40)
-        return lb
-    }()
-    
-    private let titleFishSpecies: UILabel = {
-        let lb = UILabel()
-        lb.text = "어종"
-        lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
-        lb.font = UIFont.boldSystemFont(ofSize: 40)
-        return lb
-    }()
-    
-    private let imgSirenGreen: UIImageView = {
-        let iv = UIImageView()
-        var img = UIImage(named: "ico-siren-green")
-        iv.image = img
-        iv.snp.makeConstraints {
-            $0.height.width.equalTo(70)
-        }
-        return iv
-    }()
-    
-    private let imgSirenRed: UIImageView = {
-        let iv = UIImageView()
-        var img = UIImage(named: "ico-siren-red")
-        iv.image = img
-        iv.snp.makeConstraints {
-            $0.height.width.equalTo(70)
-        }
-        return iv
-    }()
-    
-    private let stack: UIStackView = {
-        let s = UIStackView()
-        s.axis = .horizontal
-        s.alignment = .center
-        s.distribution = .fillProportionally
-        s.spacing = 30
-        return s
-    }()
-    
     //MARK:- Lifecycle
     override func viewDidLoad() {
+        makeData()
         configureView()
         configureSubView()
         bindRx()
@@ -115,21 +74,31 @@ class HomeViewController: UIViewController {
         
     }
     
+    private func makeData() {
+        for i in 0...1 {
+            tankData.append(ModelWaterTank.init(
+                                titleWaterTank: textTank[i],
+                                titleFish: textFish[i])
+            )
+            
+            print(tankData)
+        }
+    }
+    
     //MARK:- ConfigureView
     private func configureView() {
         view.backgroundColor = .white
         
+        self.tableViewTankList.delegate = self
+        self.tableViewTankList.dataSource = self
+        self.tableViewTankList.rowHeight = 100
+        
         view.addSubview(btnLogout)
         view.addSubview(btnAddFolder)
         view.addSubview(Logo)
-        view.addSubview(stack)
         
-        stack.addArrangedSubview(stackLabels)
-        stack.addArrangedSubview(imgSirenGreen)
-        
-        stackLabels.addArrangedSubview(titleWaterTank)
-        stackLabels.addArrangedSubview(labelSlash)
-        stackLabels.addArrangedSubview(titleFishSpecies)
+        self.tableViewTankList.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        view.addSubview(tableViewTankList)
 
     }
     
@@ -151,15 +120,11 @@ class HomeViewController: UIViewController {
             $0.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX)
         }
         
-        stack.snp.makeConstraints {
-            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(8)
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(161)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-8)
-        }
-            
-        stackLabels.snp.makeConstraints {
+        tableViewTankList.snp.makeConstraints {
+            $0.top.equalTo(Logo.snp.bottom).offset(16)
             $0.leading.equalToSuperview().offset(16)
-            $0.top.bottom.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
         }
 
     }
@@ -180,4 +145,32 @@ class HomeViewController: UIViewController {
                 self?.present(addTank, animated: true, completion: nil)
             }.disposed(by: bag)
     }
+}
+
+
+//MARK:- TableView Delegate
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(textTank[indexPath.row])
+    }
+}
+
+//MARK:- TableView DataSource
+extension HomeViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tankData.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableViewTankList.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
+        
+        cell.titleWaterTank.text = tankData[indexPath.row].titleWaterTank ?? ""
+        cell.titleFishSpecies.text = tankData[indexPath.row].titleFish ?? ""
+        
+        return cell
+    }
+
+
 }

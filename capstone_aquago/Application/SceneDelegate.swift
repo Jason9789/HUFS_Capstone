@@ -18,7 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
 //        window?.rootViewController = SignUpViewController()
         
-        let rootVC = InfoViewcontroller()
+        let rootVC = LoginViewController()
+//        let rootVC = InfoViewcontroller()
         let navi = UINavigationController(rootViewController: rootVC)
         navi.navigationBar.isHidden = true
         navi.modalPresentationStyle = .fullScreen
