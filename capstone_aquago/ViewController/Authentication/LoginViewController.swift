@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import Firebase
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
 
@@ -59,16 +61,18 @@ class LoginViewController: UIViewController {
         return tf
     }()
     
-    let login: UIButton = {
-        let btn = UIButton()
-        btn.setTitle("들어가기", for: .normal)
-        btn.setTitleColor(.white, for: .normal)
-        btn.backgroundColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1.0)
-        btn.layer.cornerRadius = 10.0
-        
-        return btn
-    }()
+//    let login: UIButton = {
+//        let btn = UIButton()
+//        btn.setTitle("들어가기", for: .normal)
+//        btn.setTitleColor(.white, for: .normal)
+//        btn.backgroundColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1.0)
+//        btn.layer.cornerRadius = 10.0
+//
+//        return btn
+//    }()
     
+    let login = GIDSignInButton()
+
     let guide: UILabel = {
         let lb = UILabel()
         lb.text = "아직 계정이 없으신가요?"
@@ -97,6 +101,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().signIn()
+        
         initView()
         bindRx()
     }
@@ -157,15 +165,30 @@ class LoginViewController: UIViewController {
         }
     }
     
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+//        if let error = error {
+//            return
+//        }
+//        
+//        guard let authentication = user.authentication else { return }
+//        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+//        
+//                        let homeVC = HomeViewController()
+//                        homeVC.modalPresentationStyle = .fullScreen
+//        self.present(homeVC, animated: true, completion: nil)
+//    }
+    
     private func bindRx() {
         
-        login.rx
-            .tap
-            .bind {
-                let homeVC = HomeViewController()
-                homeVC.modalPresentationStyle = .fullScreen
-                self.present(homeVC, animated: true, completion: nil)
-            }.disposed(by: bag)
+//        login.rx
+//            .tap
+//            .bind {
+//                let homeVC = HomeViewController()
+//                homeVC.modalPresentationStyle = .fullScreen
+//                self.present(homeVC, animated: true, completion: nil)
+//            }.disposed(by: bag)
+
+        
         
         signup.rx
             .tap

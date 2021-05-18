@@ -6,9 +6,11 @@ target 'capstone_aquago' do
   use_frameworks!
 
   # Pods for capstone_aquago
-  pod 'SnapKit', '~>5.0.0'
+  pod 'SnapKit'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 end

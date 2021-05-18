@@ -81,7 +81,7 @@ class HomeViewController: UIViewController {
         
         self.viewModel.input.tank
             .subscribe(onNext: {
-                print($0)
+                print($0 ?? "")
             }).disposed(by: bag)
     }
     
