@@ -13,6 +13,7 @@
 		060E9364262478D1003426E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060E9363262478D1003426E6 /* LoginViewController.swift */; };
 		060E9369262478D1003426E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 060E9368262478D1003426E6 /* Assets.xcassets */; };
 		060E936C262478D1003426E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060E936A262478D1003426E6 /* LaunchScreen.storyboard */; };
+		061B15BD2653B29C00C8092F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 061B15BC2653B29C00C8092F /* GoogleService-Info.plist */; };
 		06510AF6264FA21400689E59 /* AddTankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06510AF5264FA21400689E59 /* AddTankViewController.swift */; };
 		06510AF9264FB70000689E59 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06510AF8264FB70000689E59 /* InfoViewController.swift */; };
 		06510AFC264FC4B500689E59 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06510AFB264FC4B500689E59 /* EditViewController.swift */; };
@@ -34,6 +35,7 @@
 		060E9368262478D1003426E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		060E936B262478D1003426E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		060E936D262478D1003426E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		061B15BC2653B29C00C8092F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		06510AF5264FA21400689E59 /* AddTankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTankViewController.swift; sourceTree = "<group>"; };
 		06510AF8264FB70000689E59 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		06510AFB264FC4B500689E59 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		060E937526247981003426E6 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				061B15BC2653B29C00C8092F /* GoogleService-Info.plist */,
 				060E936D262478D1003426E6 /* Info.plist */,
 				060E9368262478D1003426E6 /* Assets.xcassets */,
 				060E936A262478D1003426E6 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			files = (
 				060E936C262478D1003426E6 /* LaunchScreen.storyboard in Resources */,
 				060E9369262478D1003426E6 /* Assets.xcassets in Resources */,
+				061B15BD2653B29C00C8092F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>103021719780-f4deksop8f9dksil8n6e9kc5f5ebhbpv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.103021719780-f4deksop8f9dksil8n6e9kc5f5ebhbpv</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>103021719780-03t4hkiadplj7get6qenfi66f3jpe62j.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCwPm0P8aUbRch_h3qdKNpKHIjPIsz8dNI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>103021719780</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.pangeun.capstone-aquago</string>
+	<key>PROJECT_ID</key>
+	<string>ntcon-aquago</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ntcon-aquago.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:103021719780:ios:02b6675e84c8a398f0bcf1</string>
+	<key>DATABASE_URL</key>
+	<string>https://ntcon-aquago.firebaseio.com</string>
+</dict>
+</plist>

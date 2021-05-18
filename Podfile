@@ -9,4 +9,6 @@ target 'capstone_aquago' do
   pod 'SnapKit', '~>5.0.0'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 end
