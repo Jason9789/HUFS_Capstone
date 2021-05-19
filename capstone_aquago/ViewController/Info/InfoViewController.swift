@@ -49,14 +49,6 @@ class InfoViewcontroller: UIViewController {
         return s
     }()
     
-    private let titleCreated: UILabel = {
-        let lb = UILabel()
-        lb.text = "생성 날짜 : 2021 - 03 - 31"
-        lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
-        lb.font = UIFont.boldSystemFont(ofSize: 20)
-        return lb
-    }()
-    
     var titleWaterTank: UILabel = {
         let lb = UILabel()
         lb.text = "수조이름"
@@ -238,8 +230,6 @@ class InfoViewcontroller: UIViewController {
         stackLabels.addArrangedSubview(labelSlash)
         stackLabels.addArrangedSubview(titleFishSpecies)
         
-        view.addSubview(titleCreated)
-        
         view.addSubview(titleDO)
         view.addSubview(imgDO)
         view.addSubview(labelValueDO)
@@ -283,10 +273,6 @@ class InfoViewcontroller: UIViewController {
             $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-50)
         }
         
-        titleCreated.snp.makeConstraints {
-            $0.top.equalTo(stackLabels.snp.bottom).offset(16)
-            $0.centerX.equalToSuperview()
-        }
         
         /// DO
         titleDO.snp.makeConstraints {
