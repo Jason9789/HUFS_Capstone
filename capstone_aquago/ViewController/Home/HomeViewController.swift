@@ -9,15 +9,20 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import Firebase
+import FirebaseFirestore
+import GoogleSignIn
 
 class HomeViewController: UIViewController {
     
     var tankData = [ModelWaterTank]()
     
-    private let textTank = ["우럭울어", "광어미쳐"]
-    private let textFish = ["우럭", "광어"]
+    private var textTank = [String]()
+    private var textFish = [String]()
     
     private let texts = [[String]]()
+    
+    private var db = Firestore.firestore()
     
     //MARK:- Private
     private let bag = DisposeBag()
@@ -69,6 +74,7 @@ class HomeViewController: UIViewController {
     //MARK:- Lifecycle
     override func viewDidLoad() {
         makeData()
+        getData()
         configureView()
         configureSubView()
         bindRx()
@@ -141,6 +147,43 @@ class HomeViewController: UIViewController {
 
     }
     
+    //MARK:- GetData
+    private func getData() {
+
+        print("---- GET DATA ----")
+        
+        let docRef = db.collection("groups").document("ncQoNWSPu5RgjCoe5Td5")
+            .collection("fishFarms").document("QR2QqWiFlarZCaecisOo")
+            .collection("moanas")
+        
+        docRef.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                let count = querySnapshot!.documents.count
+                print(count)
+                
+                for document in querySnapshot!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+//                    print(document.get("speciesName") ?? "")
+//                    print(document.get("tankName") ?? "")
+                    
+                    self.textFish.append(document.get("speciesName") as! String)
+                    self.textTank.append(document.get("tankName") as! String)
+                    
+                    DispatchQueue.main.async {
+                        self.tableViewTankList.reloadData()
+                    }
+                    
+                    print(self.textFish)
+                    print(self.textTank)
+                }
+            }
+        }
+        
+        print("---- GET DATA END ----")
+    }
+    
     //MARK:- BindRx
     private func bindRx() {
         
@@ -148,6 +191,16 @@ class HomeViewController: UIViewController {
             .tap
             .bind {
                 self.dismiss(animated: true, completion: nil)
+                
+                let firebaseAuth = Auth.auth()
+                do {
+                    try firebaseAuth.signOut()
+                } catch let signOutError as NSError {
+                    print("Error signing out: %@", signOutError)
+                }
+                
+                
+                print("LOGOUT")
             }.disposed(by: bag)
         
         btnAddFolder.rx
@@ -172,7 +225,7 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tankData.count
+        return self.textTank.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -182,6 +235,9 @@ extension HomeViewController: UITableViewDataSource {
         
 //        cell.titleWaterTank.text = tankData[indexPath.row].titleWaterTank ?? ""
 //        cell.titleFishSpecies.text = tankData[indexPath.row].titleFish ?? ""
+        
+        cell.titleFishSpecies.text = textFish[indexPath.row]
+        cell.titleWaterTank.text = textTank[indexPath.row]
         
         return cell
     }

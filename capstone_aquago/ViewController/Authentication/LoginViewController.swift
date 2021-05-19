@@ -192,8 +192,8 @@ class LoginViewController: UIViewController {
         
         signup.rx
             .tap
-            .bind {
-                self.present(SignUpViewController(), animated: true, completion: nil)
+            .bind { [weak self] in
+                self?.present(SignUpViewController(), animated: true, completion: nil)
             }.disposed(by: bag)
     }
 }
