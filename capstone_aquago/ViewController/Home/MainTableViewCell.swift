@@ -25,7 +25,7 @@ class MainTableViewCell: UITableViewCell {
         let lb = UILabel()
         lb.text = "수조이름"
         lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
-        lb.font = UIFont.boldSystemFont(ofSize: 40)
+        lb.font = UIFont.boldSystemFont(ofSize: 20)
         lb.adjustsFontForContentSizeCategory = false
         return lb
     }()
@@ -34,8 +34,8 @@ class MainTableViewCell: UITableViewCell {
         let lb = UILabel()
         lb.text = "/"
         lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
-        lb.font = UIFont.boldSystemFont(ofSize: 40)
-        //        lb.adjustsFontForContentSizeCategory = false
+        lb.font = UIFont.boldSystemFont(ofSize: 20)
+                lb.adjustsFontForContentSizeCategory = false
         return lb
     }()
     
@@ -43,7 +43,7 @@ class MainTableViewCell: UITableViewCell {
         let lb = UILabel()
         lb.text = "어종"
         lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
-        lb.font = UIFont.boldSystemFont(ofSize: 40)
+        lb.font = UIFont.boldSystemFont(ofSize: 20)
         lb.adjustsFontForContentSizeCategory = false
         return lb
     }()

@@ -57,7 +57,7 @@ class InfoViewcontroller: UIViewController {
         return lb
     }()
     
-    private let titleWaterTank: UILabel = {
+    var titleWaterTank: UILabel = {
         let lb = UILabel()
         lb.text = "수조이름"
         lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
@@ -73,7 +73,7 @@ class InfoViewcontroller: UIViewController {
         return lb
     }()
     
-    private let titleFishSpecies: UILabel = {
+    var titleFishSpecies: UILabel = {
         let lb = UILabel()
         lb.text = "어종"
         lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
@@ -129,7 +129,7 @@ class InfoViewcontroller: UIViewController {
         return iv
     }()
     
-    private let labelValueDO: UILabel = {
+    var labelValueDO: UILabel = {
         let lb = UILabel()
         lb.text = "16.5"
         lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
@@ -163,7 +163,7 @@ class InfoViewcontroller: UIViewController {
         return iv
     }()
     
-    private let labelValuePH: UILabel = {
+    var labelValuePH: UILabel = {
         let lb = UILabel()
         lb.text = "8.0"
         lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
@@ -197,7 +197,7 @@ class InfoViewcontroller: UIViewController {
         return iv
     }()
     
-    private let labelValueTemp: UILabel = {
+    var labelValueTemp: UILabel = {
         let lb = UILabel()
         lb.text = "37.5"
         lb.textColor = UIColor(red: 78/255, green: 148/255, blue: 199/255, alpha: 1)
@@ -216,6 +216,7 @@ class InfoViewcontroller: UIViewController {
     //MARK:- Lifecycle
     override func viewDidLoad() {
         print("Info")
+//        let vc = HomeViewController()
         configureView()
         configureSubView()
         bindRx()
@@ -225,6 +226,8 @@ class InfoViewcontroller: UIViewController {
     
     private func configureView() {
         view.backgroundColor = .white
+        
+        
         
         view.addSubview(btnHome)
         view.addSubview(btnEdit)

@@ -17,8 +17,17 @@ class HomeViewController: UIViewController {
     
     var tankData = [ModelWaterTank]()
     
-    private var textTank = [String]()
-    private var textFish = [String]()
+    private var listWaterTank = [String]()
+    private var listFish = [String]()
+    private var listDO = [Any]()
+    private var listPH = [Any]()
+    private var listRTD = [Any]()
+    
+    var paramWaterTank: String = ""
+    var paramFish: String = ""
+    var paramDO: String = ""
+    var paramPH: String = ""
+    var paramRTD: String = ""
     
     private let texts = [[String]]()
     
@@ -165,18 +174,24 @@ class HomeViewController: UIViewController {
                 
                 for document in querySnapshot!.documents {
 //                    print("\(document.documentID) => \(document.data())")
-//                    print(document.get("speciesName") ?? "")
-//                    print(document.get("tankName") ?? "")
                     
-                    self.textFish.append(document.get("speciesName") as! String)
-                    self.textTank.append(document.get("tankName") as! String)
+//                    print("===== document =====")
+//                    print(document.get("sensor") ?? "")
+                    print(document.get("sensor.DO") ?? "")
+                    print(document.get("sensor.PH") ?? "")
+                    print(document.get("sensor.RTD") ?? "")
+                    
+                    self.listFish.append(document.get("speciesName") as! String)
+                    self.listWaterTank.append(document.get("tankName") as! String)
+                    self.listDO.append(document.get("sensor.DO") as! Double)
+                    self.listPH.append(document.get("sensor.PH") as! Double)
+                    self.listRTD.append(document.get("sensor.RTD") as! Double)
                     
                     DispatchQueue.main.async {
                         self.tableViewTankList.reloadData()
                     }
                     
-                    print(self.textFish)
-                    print(self.textTank)
+                    print("===== document end =====")
                 }
             }
         }
@@ -217,7 +232,22 @@ class HomeViewController: UIViewController {
 //MARK:- TableView Delegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(textTank[indexPath.row])
+        print(listWaterTank[indexPath.row])
+        print(listFish[indexPath.row])
+        print("DO : \(listDO[indexPath.row])")
+        print("PH : \(listPH[indexPath.row])")
+        print("온도 : \(listRTD[indexPath.row])")
+        
+        paramWaterTank = listWaterTank[indexPath.row]
+        
+        let infoVC = InfoViewcontroller()
+        infoVC.titleWaterTank.text = listWaterTank[indexPath.row]
+        infoVC.titleFishSpecies.text = listFish[indexPath.row]
+        infoVC.labelValueDO.text = "\(listDO[indexPath.row])"
+        infoVC.labelValuePH.text = "\(listPH[indexPath.row])"
+        infoVC.labelValueTemp.text = "\(listRTD[indexPath.row])"
+        
+        self.present(infoVC, animated: true, completion: nil)
     }
 }
 
@@ -225,7 +255,7 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.textTank.count
+        return self.listWaterTank.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -236,8 +266,8 @@ extension HomeViewController: UITableViewDataSource {
 //        cell.titleWaterTank.text = tankData[indexPath.row].titleWaterTank ?? ""
 //        cell.titleFishSpecies.text = tankData[indexPath.row].titleFish ?? ""
         
-        cell.titleFishSpecies.text = textFish[indexPath.row]
-        cell.titleWaterTank.text = textTank[indexPath.row]
+        cell.titleFishSpecies.text = listFish[indexPath.row]
+        cell.titleWaterTank.text = listWaterTank[indexPath.row]
         
         return cell
     }
